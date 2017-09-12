@@ -1,11 +1,14 @@
-/**
- * @author Jamal Rasool and Zach Sotak
- * @version 1.0
- * @since 0.0
- * CS3354 Programing Assignment 1
- * Program is designed to simulate a shipping store database and give users an interface to display certain actions
- * in the program
- */
+/*******************************************************************************
+@author Jamal Rasool and Zach Sotak
+ Date: 09/12/2017
+ @version 1.0
+ @since 1.0
+ Class Name: MainApp
+ Description: <p> This class defines what a "DVD" item is including SKU, Title,
+ Price, and Quantity. It provides a constructor to initialize each
+ parameter in addition to the normal setters and getters to set specific
+ descriptors. </p>
+ ******************************************************************************/
 
 import java.io.*;
 import java.util.ArrayList;
