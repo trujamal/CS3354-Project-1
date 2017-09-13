@@ -4,10 +4,7 @@
  @version 1.0
  @since 1.0
  Class Name: MainApp
- Description: <p> This class defines what a "DVD" item is including SKU, Title,
- Price, and Quantity. It provides a constructor to initialize each
- parameter in addition to the normal setters and getters to set specific
- descriptors. </p>
+ Description: <p> Runs shipping database </p>
  ******************************************************************************/
 
 import java.io.*;
