@@ -2,17 +2,20 @@ import java.util.*;
 
 public class packageOrder {
 
-    //Case1: Show's All Packages in the database
     public static void showAllPackages(List<Package> x) {
 
 
     }
 
-    //Case2: Add a new package to the database (Type list)
+    /**
+     * This function is designed to go through several test in order to determine if certain conditions are met in order
+     * to add a package with specific values to the array.
+     * @param x the array that is transferred between functions
+     * @return returns an object of type package to add to the array for further writing.
+     */
+
     public static Package addNewPackage(List<Package> x) {
-        /**
-         * Have user input information
-         */
+
         System.out.println("Please enter a Tracking Number");
 
         Package addingNew = new Package();
@@ -71,7 +74,13 @@ public class packageOrder {
         return addingNew;
     }
 
-    //Case3: Delete a package from the database (type list)
+    /**
+     * Goes through and calls the removeTester function to go through and search for the proper package in the array and
+     * returns false if the package has not been found.
+     * @param x  the array that is transferred between functions
+     * @return returns package location in the memory of the array to be deleted in the shippingStore.java file
+     */
+
     public static Package deletePackage(List<Package> x) {
 
         String trackingNumber;
@@ -83,16 +92,21 @@ public class packageOrder {
         return remvoingPackage;
     }
 
-    //Case4: Search for a package order given tracking number
     public static void searchForPackage(List<Package> x) {
 
     }
 
-    //Case5: Show a list of packages with a given weight range
     public static void listWeightPackages(List<Package> x) {
 
     }
 
+    /**
+     * Function will compare the array to the user input text to see if their is a match and if so, return a true or
+     * false value.
+     * @param arr Passes through the string array mentioned in the previous function
+     * @param item The user input that the function will compare.
+     * @return
+     */
     public static boolean contains(String[] arr, String item) {
         for (String n : arr) {
             if (n.contains(item)) {
@@ -103,6 +117,12 @@ public class packageOrder {
         return false;
     }
 
+    /**
+     *
+     * @param y Users input
+     * @param x array of Package Objects
+     * @return
+     */
     public static boolean inputTester(String y, List<Package> x) {
         boolean result = false;
 
