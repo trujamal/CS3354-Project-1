@@ -1,9 +1,10 @@
+package CS3354_Project_One_Package;
 /*******************************************************************************
 @author Jamal Rasool and Zach Sotak
  Date: 09/12/2017
  @version 1.0
  @since 1.0
- Class Name: MainApp
+ Class Name: CS3354_Project_One_Package.MainApp
  Description: <p> Runs shipping database </p>
  ******************************************************************************/
 

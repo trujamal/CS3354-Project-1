@@ -1,3 +1,5 @@
+package CS3354_Project_One_Package;
+
 import java.util.*;
 
 public class packageOrder {
@@ -83,7 +85,7 @@ public class packageOrder {
      * Goes through and calls the removeTester function to go through and search for the proper package in the array and
      * returns false if the package has not been found.
      * @param x  the array that is transferred between functions
-     * @return returns package location in the memory of the array to be deleted in the shippingStore.java file
+     * @return returns package location in the memory of the array to be deleted in the CS3354_Project_One_Package.shippingStore.java file
      */
 
     public static Package deletePackage(List<Package> x) {
@@ -125,7 +127,7 @@ public class packageOrder {
     /**
      * Will test the users input to see if it matches the constraints dictated by the tracking number
      * @param y Users input
-     * @param x array of Package Objects
+     * @param x array of CS3354_Project_One_Package.Package Objects
      * @return returns false if the input is valid; and if the info is true, where it doesn't meet the conditions then
      * it will re-prompt the user to re-enter the information again.
      */
@@ -151,7 +153,7 @@ public class packageOrder {
      * Designed to check if the users input matches any information within the array, and if so pass the object to be
      * deleted.
      * @param y Users input
-     * @param x array of Package Objects
+     * @param x array of CS3354_Project_One_Package.Package Objects
      * @return Passing object to be deleted.
      */
     public static Package removeTester(String y, List<Package> x) {
