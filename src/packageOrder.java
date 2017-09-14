@@ -35,6 +35,7 @@ public class packageOrder {
         Scanner readInput = new Scanner(System.in);
         trackingNumber = readInput.nextLine();
 
+
         boolean wat = inputTester(trackingNumber, x);
         while(!wat) {
                 System.out.println("Please the type of package");
@@ -56,6 +57,7 @@ public class packageOrder {
                                             addingNew.mailingClass = mailingClass;
                                             addingNew.weight = weight;
                                             addingNew.volume = volume;
+
                                             return addingNew;
                                     } else {
                                         System.out.println("Error Invalid Input. Please Try again \n");
@@ -118,10 +120,11 @@ public class packageOrder {
     }
 
     /**
-     *
+     * Will test the users input to see if it matches the constraints dictated by the tracking number
      * @param y Users input
      * @param x array of Package Objects
-     * @return
+     * @return returns false if the input is valid; and if the info is true, where it doesn't meet the conditions then
+     * it will reprromt
      */
     public static boolean inputTester(String y, List<Package> x) {
         boolean result = false;
@@ -141,6 +144,12 @@ public class packageOrder {
         return result;
     }
 
+    /**
+     *
+     * @param y Users input
+     * @param x array of Package Objects
+     * @return
+     */
     public static Package removeTester(String y, List<Package> x) {
 
         Package remvoingPackage = new Package();
