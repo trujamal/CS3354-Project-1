@@ -3,20 +3,19 @@ import java.util.*;
 public class packageOrder {
 
     //Case1: Show's All Packages in the database
-    public static void showAllPackages(List<Package> x)
-    {
+    public static void showAllPackages(List<Package> x) {
 
 
     }
 
     //Case2: Add a new package to the database (Type list)
-    public static List<Package> addNewPackage(List<Package> x)
-    {
+    public static Package addNewPackage(List<Package> x) {
         /**
          * Have user input information
          */
         System.out.println("Please enter a Tracking Number");
 
+        Package addingNew = new Package();
         String trackingNumber;
         String type;
         String specification;
@@ -25,119 +24,121 @@ public class packageOrder {
         int volume;
 
         // Array
-        String[] typePackage = {"Postcard","Letter","Envelope","Packet","Box","Crate","Drum","Roll", "Tube"};
-        String[] specPackage = {"Fragile","Books","Catalogs","Do-not-Bend","n/a"};
-        String[] mainPackage = {"First-Class","Priority","Retail","Ground","Metro"};
+        String[] typePackage = {"Postcard", "Letter", "Envelope", "Packet", "Box", "Crate", "Drum", "Roll", "Tube"};
+        String[] specPackage = {"Fragile", "Books", "Catalogs", "Do-not-Bend", "n/a"};
+        String[] mainPackage = {"First-Class", "Priority", "Retail", "Ground", "Metro"};
 
         //User input
         Scanner readInput = new Scanner(System.in);
         trackingNumber = readInput.nextLine();
 
-
-        for (Package array : x)
-        {
-            boolean wat = inputTester(array, trackingNumber,x);
-            System.out.println(wat);
-
-            if(!wat)
-            {
+        boolean wat = inputTester(trackingNumber, x);
+        while(!wat) {
                 System.out.println("Please the type of package");
                 type = readInput.nextLine();
-                if(contains(typePackage, type))
-                {
-                    System.out.println("Please the specification of package");
-                    specification = readInput.nextLine();
-                    if(contains(specPackage, specification))
-                    {
-                        System.out.println("Please enter the mailing class of the mail");
-                        mailingClass = readInput.nextLine();
-                        if(contains(mainPackage, mailingClass))
-                        {
-                            System.out.println("Please enter the weight of the package");
-                            weight = Float.parseFloat(readInput.nextLine());
-                            System.out.println("Please enter the volume of the package");
-                            volume = Integer.parseInt(readInput.nextLine());
-                            Package addingNew = new Package();
-                            addingNew.trackingNumber = trackingNumber;
-                            addingNew.type = readInput.nextLine();
-                            addingNew.specification = readInput.nextLine();
-                            addingNew.mailingClass = readInput.nextLine();
-                            addingNew.weight = weight;
-                            addingNew.volume = volume;
-                            x.add(addingNew);
-                        }
+                    if (contains(typePackage, type)) {
+                            System.out.println("Please enter the specification of package");
+                            specification = readInput.nextLine();
+                            if (contains(specPackage, specification)) {
+                                    System.out.println("Please enter the mailing class of the mail");
+                                    mailingClass = readInput.nextLine();
+                                    if (contains(mainPackage, mailingClass)) {
+                                            System.out.println("Please enter the weight of the package");
+                                            weight = Float.parseFloat(readInput.nextLine());
+                                            System.out.println("Please enter the volume of the package");
+                                            volume = Integer.parseInt(readInput.nextLine());
+                                            addingNew.trackingNumber = trackingNumber;
+                                            addingNew.type = type;
+                                            addingNew.specification = specification;
+                                            addingNew.mailingClass = mailingClass;
+                                            addingNew.weight = weight;
+                                            addingNew.volume = volume;
+                                            return addingNew;
+                                    } else {
+                                        System.out.println("Error Invalid Input. Please Try again \n");
+                                    }
+
+                            } else {
+                                System.out.println("Error Invalid Input. Please Try again \n");
+
+                            }
+
+                    } else {
+                        System.out.println("Error Invalid Input. Please Try again \n");
                     }
                 }
-            }
-        }
 
-        return x;
+        return addingNew;
     }
 
     //Case3: Delete a package from the database (type list)
-    public static List<Package> deletePackage(List<Package> x)
-    {
+    public static Package deletePackage(List<Package> x) {
 
         String trackingNumber;
-        Scanner INFO = new Scanner(System.in);
-        trackingNumber = INFO.nextLine();
+        Scanner info = new Scanner(System.in);
+        System.out.println("Please enter a Tracking Number (To delete package from inventory)");
+        trackingNumber = info.nextLine();
+        Package remvoingPackage = removeTester(trackingNumber, x);
 
-        for (Package array : x)
-        {
-            if(array.trackingNumber == trackingNumber)
-            {
-
-
-            }
-        }
-
-        return x;
+        return remvoingPackage;
     }
 
     //Case4: Search for a package order given tracking number
-    public static void searchForPackage(List<Package> x)
-    {
+    public static void searchForPackage(List<Package> x) {
 
     }
 
     //Case5: Show a list of packages with a given weight range
-    public static void listWeightPackages(List<Package> x)
-    {
+    public static void listWeightPackages(List<Package> x) {
 
     }
 
-    public static boolean contains(String[] arr, String item)
-    {
+    public static boolean contains(String[] arr, String item) {
         for (String n : arr) {
-            if (item == n) {
+            if (n.contains(item)) {
                 return true;
             }
         }
+
         return false;
     }
 
-    public static boolean inputTester(Package t, String y,List<Package> x) {
-        boolean result;
+    public static boolean inputTester(String y, List<Package> x) {
+        boolean result = false;
+
+
         for (int i = 0; i < x.size(); i++) {
 
-            Package halp;
-            halp = x[i];
-            if ( .[i].trackingNumber == y) {
-                result = true;
-                System.out.println("Thank you for subscribing to Hentai Weekly | Loli, Yuri, Furry, And More! For being the 1,000,000 customer, we would like to gift you a FREE Hentai Girl Tentacle Realistic Life-size Sex Doll and Lewd Body pillow FREE of charge! Have a horny day!");
+            if (x.get(i).trackingNumber.matches(y) || y.length() != 5) {
+
                 System.out.println("ERROR! The TRACKING NUMBER '" + y +
-                        "' is already in use. Or is more than 5 characters. " +
-                        "Please type in a different TRACKING NUMBER " +
-                        "and try again.\n");
+                        "' is already in use. Or is not 5 characters. \n");
+                result = true;
                 addNewPackage(x);
-
-            } else {
-                result = false;
             }
-
         }
+
         return result;
     }
 
+    public static Package removeTester(String y, List<Package> x) {
+
+        Package remvoingPackage = new Package();
+
+        for (int i = 0; i < x.size(); i++) {
+
+            if (x.get(i).trackingNumber.matches(y)) {
+                System.out.print("SUCCESS!");
+                remvoingPackage = x.get(i);
+                return remvoingPackage;
+
+            }
+        }
+        System.out.println("ERROR! The TRACKING NUMBER '" + y +
+                "' does not exist. Please enter a valid number \n");
+        deletePackage(x);
+
+        return remvoingPackage;
+    }
 
 }

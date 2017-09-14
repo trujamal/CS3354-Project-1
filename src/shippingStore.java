@@ -73,27 +73,35 @@ public class shippingStore {
 
     private static void userCases(int num, List<Package> x) throws Exception
     {
+        Package newObject;
         switch (num)
         {
             case 1:
                 // Show's All Packages in the database (Void)
                 packageOrder.showAllPackages(x);
+                textInputFunction(x);
                 break;
             case 2:
                 // Add a new package to the database (Return type list)
-                x = packageOrder.addNewPackage(x);
+                newObject = packageOrder.addNewPackage(x);
+                x.add(newObject);
+                textInputFunction(x);
                 break;
             case 3:
                 // Delete a package from the database (Return type list)
-                x = packageOrder.deletePackage(x);
+                newObject = packageOrder.deletePackage(x);
+                x.remove(newObject);
+                textInputFunction(x);
                 break;
             case 4:
                 // Search for a package order given tracking number
                 packageOrder.searchForPackage(x);
+                textInputFunction(x);
                 break;
             case 5:
                 // Show a list of packages with a given weight range
                 packageOrder.listWeightPackages(x);
+                textInputFunction(x);
                 break;
             case 6:
                 try {
