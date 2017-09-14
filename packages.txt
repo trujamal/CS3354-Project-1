@@ -3,3 +3,5 @@ H43SM Envelope Do-not-Bend Priority 3.0 12
 83RS9 Packet Fragile Ground 55.0 24
 GFR23 Box Books Retail 9500.0 45
 5N38A Drum Catalogs Metro 34.0 27
+G353A Box Fragile Metro 53.2 649
+FAU42 Crate Catalogs Ground 42.5 503

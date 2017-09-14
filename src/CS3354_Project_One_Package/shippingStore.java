@@ -85,6 +85,7 @@ public class shippingStore {
                 // Add a new package to the database (Return type list)
                 newObject = packageOrder.addNewPackage(x);
                 x.add(newObject);
+                System.out.println("Successfully added Package to Inventory \n \n");
                 textInputFunction(x);
                 break;
             case 3:
