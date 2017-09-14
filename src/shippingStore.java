@@ -18,8 +18,6 @@ public class shippingStore {
         Scanner userInput = new Scanner(System.in);
         userText = userInput.nextLine();
 
-
-
         if(userText.matches("h"))
         {
             int num = 7;

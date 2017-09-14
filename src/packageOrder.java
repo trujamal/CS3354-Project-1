@@ -1,9 +1,12 @@
 import java.util.*;
 
 public class packageOrder {
+    /**
+     * Designed to show all the Pacakges within the array object
+     * @param x imports the array of objects
+     */
 
     public static void showAllPackages(List<Package> x) {
-
 
     }
 
@@ -36,8 +39,8 @@ public class packageOrder {
         trackingNumber = readInput.nextLine();
 
 
-        boolean wat = inputTester(trackingNumber, x);
-        while(!wat) {
+        boolean testEpoch = inputTester(trackingNumber, x);
+        while(!testEpoch) {
                 System.out.println("Please the type of package");
                 type = readInput.nextLine();
                     if (contains(typePackage, type)) {
@@ -95,7 +98,7 @@ public class packageOrder {
     }
 
     public static void searchForPackage(List<Package> x) {
-
+// TODO: 9/14/17 help
     }
 
     public static void listWeightPackages(List<Package> x) {
@@ -107,7 +110,7 @@ public class packageOrder {
      * false value.
      * @param arr Passes through the string array mentioned in the previous function
      * @param item The user input that the function will compare.
-     * @return
+     * @return returns a true or false value to check if it contains the said user text.
      */
     public static boolean contains(String[] arr, String item) {
         for (String n : arr) {
@@ -124,7 +127,7 @@ public class packageOrder {
      * @param y Users input
      * @param x array of Package Objects
      * @return returns false if the input is valid; and if the info is true, where it doesn't meet the conditions then
-     * it will reprromt
+     * it will re-prompt the user to re-enter the information again.
      */
     public static boolean inputTester(String y, List<Package> x) {
         boolean result = false;
@@ -145,21 +148,22 @@ public class packageOrder {
     }
 
     /**
-     *
+     * Designed to check if the users input matches any information within the array, and if so pass the object to be
+     * deleted.
      * @param y Users input
      * @param x array of Package Objects
-     * @return
+     * @return Passing object to be deleted.
      */
     public static Package removeTester(String y, List<Package> x) {
 
-        Package remvoingPackage = new Package();
+        Package removingPackage = new Package();
 
         for (int i = 0; i < x.size(); i++) {
 
             if (x.get(i).trackingNumber.matches(y)) {
                 System.out.print("SUCCESS!");
-                remvoingPackage = x.get(i);
-                return remvoingPackage;
+                removingPackage = x.get(i);
+                return removingPackage;
 
             }
         }
@@ -167,7 +171,7 @@ public class packageOrder {
                 "' does not exist. Please enter a valid number \n");
         deletePackage(x);
 
-        return remvoingPackage;
+        return removingPackage;
     }
 
 }
