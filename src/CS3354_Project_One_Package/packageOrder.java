@@ -19,76 +19,135 @@ public class packageOrder {
      * @return returns an object of type package to add to the array for further writing.
      */
 
-    // TODO: 9/14/17 Redo Validation
     public static Package addNewPackage(List<Package> x) {
-        // Declaring Variables
+
         Package addingNew = new Package();
-        String trackingNumber;
-        String type;
-        String specification;
-        String mailingClass;
-        float weight;
-        int volume;
-
-        // Declaring Arrays
-        String[] typePackage = {"Postcard", "Letter", "Envelope", "Packet", "Box", "Crate", "Drum", "Roll", "Tube"};
-        String[] specPackage = {"Fragile", "Books", "Catalogs", "Do-not-Bend", "n/a"};
-        String[] mainPackage = {"First-Class", "Priority", "Retail", "Ground", "Metro"};
-
-        // Declaring User input
-        Scanner readInput = new Scanner(System.in);
-        System.out.println("Please enter a Tracking Number");
-        trackingNumber = readInput.nextLine();
-
-
-        boolean testEpoch = inputTester(trackingNumber, x);
-        while(!testEpoch) {
-            System.out.println("Please the type of package");
-            type = readInput.nextLine();
-            if (contains(typePackage, type)) {
-                System.out.println("Please enter the specification of package");
-                specification = readInput.nextLine();
-                if (contains(specPackage, specification)) {
-                    System.out.println("Please enter the mailing class of the package");
-                    mailingClass = readInput.nextLine();
-                    if (contains(mainPackage, mailingClass)) {
-                        System.out.println("Please enter the weight of the package");
-
-                        weight = Float.parseFloat(readInput.nextLine());
-                        System.out.println("Please enter the volume of the package");
-                        volume = Integer.parseInt(readInput.nextLine());
-                        addingNew.trackingNumber = trackingNumber;
-                        addingNew.type = type;
-                        addingNew.specification = specification;
-                        addingNew.mailingClass = mailingClass;
-                        addingNew.weight = weight;
-                        addingNew.volume = volume;
-                        return addingNew;
-
-                    } else {
-                        System.out.println("Error Invalid Input. Must contain \"First-Class\", \"Priority\", " +
-                                "\"Retail\", \"Ground\", \"Metro\" Please Try again \n");
-                    }
-
-                } else {
-                    System.out.println("Error Invalid Input. Must contain \"Fragile\", \"Books\", \"Catalogs\"," +
-                            " \"Do-not-Bend\", \"n/a\"  Please Try again \n");
-                }
-
-            } else {
-                System.out.println("Error Invalid Input. Must contain \"Postcard\", \"Letter\", \"Envelope\"," +
-                        " \"Packet\", \"Box\", \"Crate\", \"Drum\", \"Roll\", \"Tube\" Please Try again \n");
-            }
-        }
+        addingNew.trackingNumber = userTextInputs(x,0);
+        addingNew.type = userTextInputs(x,1);
+        addingNew.specification = userTextInputs(x,2);
+        addingNew.mailingClass = userTextInputs(x, 3);
+        addingNew.weight = userFloatInputs(x);
+        addingNew.volume = userIntegerInput(x);
 
         return addingNew;
     }
 
-    public static boolean userTestInputs(List<Package> x) {
-        boolean val = false;
-        
+    public static Float userFloatInputs(List<Package> x)
+    {
+        Float val = Float.parseFloat("0");
+        String stringValue;
+        Scanner readInput = new Scanner(System.in);
+        Boolean swatch = true;
 
+        while(swatch == true) {
+            System.out.println("Please enter the weight of the package");
+            stringValue = readInput.nextLine();
+                if (!stringValue.matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+                    System.out.println("ERROR! The value" + stringValue +
+                            "' is not a valid number. Please Try Again \n");
+                } else if(stringValue.matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+                    val = Float.parseFloat(stringValue);
+                    return val;
+                }
+        }
         return val;
+    }
+
+    public static Integer userIntegerInput(List<Package> x)
+    {
+        int volume = Integer.parseInt("0");
+        String stringValue;
+        Scanner readInput = new Scanner(System.in);
+        Boolean swatch = true;
+
+        while(swatch == true) {
+            System.out.println("Please enter the volume of the package");
+            stringValue = readInput.nextLine();
+            for (int i = 0; i < x.size(); i++) {
+                if (!stringValue.matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+                    System.out.println("ERROR! The value" + stringValue +
+                            "' is not a valid volume. Please Try Again \n");
+                } else if(stringValue.matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+                    volume = Integer.parseInt(stringValue);
+                    return volume;
+                }
+            }
+        }
+        return volume;
+    }
+
+    public static String userTextInputs(List<Package> x,int version)
+    {
+        // Declaring Arrays
+        String[] typePackage = {"Postcard", "Letter", "Envelope", "Packet", "Box", "Crate", "Drum", "Roll", "Tube"};
+        String[] specPackage = {"Fragile", "Books", "Catalogs", "Do-not-Bend", "n/a"};
+        String[] mailPackage = {"First-Class", "Priority", "Retail", "Ground", "Metro"};
+
+        Scanner readInput = new Scanner(System.in);
+        String text = "";
+        Boolean swatch = true;
+
+        switch(version)
+        {
+            case 0:
+                firstInput:
+                while(swatch == true) {
+                    System.out.println("Please enter a Tracking Number");
+                    text = readInput.nextLine();
+                    for (int i = 0; i < x.size(); i++) {
+                        if (x.get(i).trackingNumber.matches(text) || text.length() != 5 || !text.matches("[A-Za-z0-9]+")) {
+                            System.out.println("ERROR! The TRACKING NUMBER '" + text +
+                                    "' is already in use. Or is invalid Please Try Again \n");
+                            break;
+                        } else if(i == (x.size()-1) && text.length() == 5 && text.matches("[A-Za-z0-9]+")) {
+                            break firstInput;
+                        }
+                    }
+                }
+                return text;
+            case 1:
+                while (swatch) {
+                    System.out.println("Please the type of Package");
+                    text = readInput.nextLine();
+                    if (contains(typePackage, text)) {
+                        return text;
+                    } else {
+                        System.out.println("Error Invalid Input. Must contain \"Postcard\", \"Letter\", \"Envelope\"," +
+                                " \"Packet\", \"Box\", \"Crate\", \"Drum\", \"Roll\", \"Tube\" Please Try again \n");
+                    }
+                }
+                return text;
+            case 2:
+                while (swatch) {
+                    System.out.println("Please enter the specification of Package");
+                    text = readInput.nextLine();
+                    if (contains(specPackage, text)) {
+                        return text;
+                    } else {
+                        System.out.println("Error Invalid Input. Must contain \"Fragile\", \"Books\", \"Catalogs\"," +
+                                " \"Do-not-Bend\", \"n/a\"  Please Try again \n");
+                    }
+                }
+                return text;
+            case 3:
+                while (swatch) {
+                    System.out.println("Please enter the mailing class of the package");
+                    text = readInput.nextLine();
+                    if (contains(mailPackage, text)) {
+                        return text;
+                    } else {
+                        System.out.println("Error Invalid Input. Must contain \"First-Class\", \"Priority\", " +
+                                "\"Retail\", \"Ground\", \"Metro\" Please Try again \n");
+                    }
+                }
+                return text;
+            case 4:
+                break;
+            default:
+
+        }
+
+        return text;
     }
 
     /**
@@ -136,31 +195,6 @@ public class packageOrder {
     }
 
     /**
-     * Will test the users input to see if it matches the constraints dictated by the tracking number
-     * @param y Users input
-     * @param x array of CS3354_Project_One_Package.Package Objects
-     * @return returns false if the input is valid; and if the info is true, where it doesn't meet the conditions then
-     * it will re-prompt the user to re-enter the information again.
-     */
-    public static boolean inputTester(String y, List<Package> x) {
-        boolean result = false;
-
-
-        for (int i = 0; i < x.size(); i++) {
-
-            if (x.get(i).trackingNumber.matches(y) || y.length() != 5 || !y.matches("[A-Za-z0-9]+")) {
-
-                System.out.println("ERROR! The TRACKING NUMBER '" + y +
-                        "' is already in use. Or is invalid \n");
-                result = true;
-                return result;
-            }
-        }
-
-        return result;
-    }
-
-    /**
      * Designed to check if the users input matches any information within the array, and if so pass the object to be
      * deleted.
      * @param y Users input
@@ -186,8 +220,5 @@ public class packageOrder {
 
         return removingPackage;
     }
-
-
-
 }
 

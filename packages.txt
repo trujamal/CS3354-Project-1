@@ -5,3 +5,4 @@ GFR23 Box Books Retail 9500.0 45
 5N38A Drum Catalogs Metro 34.0 27
 G353A Box Fragile Metro 53.2 649
 FAU42 Crate Catalogs Ground 42.5 503
+FU42A Roll n/a Retail 53.4 329
