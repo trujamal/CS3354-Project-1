@@ -22,7 +22,7 @@ public class MainApp {
      * @throws FileNotFoundException
      */
 
-    public void main(String[] args) throws FileNotFoundException
+    public static void main(String[] args) throws FileNotFoundException
     {
         // Import Array Information First
         importArrayInformation();
@@ -32,7 +32,7 @@ public class MainApp {
      * Imports the file information into an array for later usage
      * @throws FileNotFoundException
      */
-    private void importArrayInformation() throws FileNotFoundException
+    private static void importArrayInformation() throws FileNotFoundException
     {
         // Creates a new array list
         List<Package> infoOfPack = new ArrayList<>();

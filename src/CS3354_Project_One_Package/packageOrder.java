@@ -19,11 +19,9 @@ public class packageOrder {
      * @return returns an object of type package to add to the array for further writing.
      */
 
-    // TODO: 9/14/17 Redo Validation 
+    // TODO: 9/14/17 Redo Validation
     public static Package addNewPackage(List<Package> x) {
-
-        System.out.println("Please enter a Tracking Number");
-
+        // Declaring Variables
         Package addingNew = new Package();
         String trackingNumber;
         String type;
@@ -32,13 +30,14 @@ public class packageOrder {
         float weight;
         int volume;
 
-        // Array
+        // Declaring Arrays
         String[] typePackage = {"Postcard", "Letter", "Envelope", "Packet", "Box", "Crate", "Drum", "Roll", "Tube"};
         String[] specPackage = {"Fragile", "Books", "Catalogs", "Do-not-Bend", "n/a"};
         String[] mainPackage = {"First-Class", "Priority", "Retail", "Ground", "Metro"};
 
-        //User input
+        // Declaring User input
         Scanner readInput = new Scanner(System.in);
+        System.out.println("Please enter a Tracking Number");
         trackingNumber = readInput.nextLine();
 
 
@@ -50,7 +49,7 @@ public class packageOrder {
                 System.out.println("Please enter the specification of package");
                 specification = readInput.nextLine();
                 if (contains(specPackage, specification)) {
-                    System.out.println("Please enter the mailing class of the mail");
+                    System.out.println("Please enter the mailing class of the package");
                     mailingClass = readInput.nextLine();
                     if (contains(mainPackage, mailingClass)) {
                         System.out.println("Please enter the weight of the package");
@@ -85,11 +84,19 @@ public class packageOrder {
         return addingNew;
     }
 
+    public static boolean userTestInputs(List<Package> x) {
+        boolean val = false;
+        
+
+        return val;
+    }
+
     /**
      * Goes through and calls the removeTester function to go through and search for the proper package in the array and
      * returns false if the package has not been found.
      * @param x  the array that is transferred between functions
-     * @return returns package location in the memory of the array to be deleted in the CS3354_Project_One_Package.shippingStore.java file
+     * @return returns package location in the memory of the array to be deleted in the
+     * CS3354_Project_One_Package.shippingStore.java file
      */
 
     public static Package deletePackage(List<Package> x) {
@@ -146,7 +153,7 @@ public class packageOrder {
                 System.out.println("ERROR! The TRACKING NUMBER '" + y +
                         "' is already in use. Or is invalid \n");
                 result = true;
-                addNewPackage(x);
+                return result;
             }
         }
 
