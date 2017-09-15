@@ -4,7 +4,7 @@ import java.util.*;
 
 public class packageOrder {
     /**
-     * Designed to show all the Pacakges within the array object
+     * Designed to show all the Packages within the array object
      * @param x imports the array of objects
      */
 
@@ -33,6 +33,13 @@ public class packageOrder {
         return addingNew;
     }
 
+    /**
+     * Gather's the users text input for the weight of a package, and checks to see if it meets the criteria of being
+     * a float or not.
+     * @param x package array
+     * @return returns number to be added to the package.
+     */
+
     public static Float userFloatInputs(List<Package> x)
     {
         Float val = Float.parseFloat("0");
@@ -53,6 +60,13 @@ public class packageOrder {
         }
         return val;
     }
+
+    /**
+     * Gather's the users text input for the volume of a package, and checks it to see if it meets the criteria of being
+     * a digit or not.
+     * @param x package array
+     * @return returns number to be added to the package.
+     */
 
     public static Integer userIntegerInput(List<Package> x)
     {
@@ -76,6 +90,13 @@ public class packageOrder {
         }
         return volume;
     }
+
+    /**
+     * Designed to test user inputs compared to an array of information
+     * @param x Array of packages
+     * @param version the position of text being called from the main function
+     * @return returns the text that is being asked for
+     */
 
     public static String userTextInputs(List<Package> x,int version)
     {
