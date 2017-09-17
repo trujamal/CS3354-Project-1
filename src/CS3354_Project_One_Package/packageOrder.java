@@ -13,7 +13,7 @@ public class packageOrder {
      * @param x imports the array of objects
      */
 
-    public static void showAllPackages(List<Package> x) {
+    public static void showAllPackages() {
         Package currentPackage;
         Locale locale = new Locale("en", "US");
         NumberFormat currencyFormatter =
@@ -218,6 +218,7 @@ public class packageOrder {
         return remvoingPackage;
     }
 
+
     public static void searchForPackage(String trackingNumber) {
         Package currentPackage = new Package();
         boolean found = false;
@@ -234,8 +235,27 @@ public class packageOrder {
 
     }
 
+    /**
+     * Function to show a list of packages within a given weight range.
+     * @param x
+     */
     public static void listWeightPackages(List<Package> x) {
-        // TODO: 9/15/17 Zach
+        // work in progress 9/17/2017
+        Package currentPackage;
+        int lower, upper, i;
+        Scanner scannerObj = new Scanner(system.in);
+        System.out.print("Enter lower weight range to print: ");
+        lower = scannerObj.nextInt();
+
+        System.out.println("Enter Upper weight range to print: ");
+        upper = scannerObj.nextInt();
+
+        for (i=lower; i<=upper; i++)
+        {
+            System.out.println(i);
+        }
+
+
 
     }
 
