@@ -43,7 +43,7 @@ public class MainApp {
             String line = inFile.nextLine();
             String[] words = line.split(" ");
 
-            /* Placing information into the array of objects */
+            /* Placing information into the array of objects
             Package newInfo = new Package();
             newInfo.trackingNumber = words[0];
             newInfo.type = words[1];
@@ -52,11 +52,11 @@ public class MainApp {
             newInfo.weight = Float.parseFloat(words[4]);
             newInfo.volume = Integer.parseInt(words[5]);
             infoOfPack.add(newInfo);
-
+            */
         }
 
         // Case Statements for menuOptions
-        shippingStore.textInputFunction(infoOfPack);
+       // shippingStore.textInputFunction(infoOfPack);
 
         inFile.close();
     }

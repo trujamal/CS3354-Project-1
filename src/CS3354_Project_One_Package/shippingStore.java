@@ -2,6 +2,7 @@ package CS3354_Project_One_Package;
 
 import java.io.*;
 import java.util.*;
+import java.io.Serializable;
 
 public class shippingStore {
 
@@ -11,8 +12,7 @@ public class shippingStore {
      * statement.
      */
 
-    public static void textInputFunction(List<Package> x)
-    {
+    public static void textInputFunction(List<Package> x) {
         // Display Menu Options
         menuOptions();
 
@@ -20,8 +20,7 @@ public class shippingStore {
         Scanner userInput = new Scanner(System.in);
         userText = userInput.nextLine();
 
-        if(userText.matches("h"))
-        {
+        if (userText.matches("h")) {
             int num = 7;
             try {
                 userCases(num, x);
@@ -30,13 +29,12 @@ public class shippingStore {
             }
         }
 
-        if(userText.matches("0"))
-        {
+        if (userText.matches("0")) {
             textInputFunction(x);
         }
 
         try {
-            userCases(Integer.parseInt(userText),x);
+            userCases(Integer.parseInt(userText), x);
         } catch (Exception e) {
             textInputFunction(x);
         }
@@ -45,11 +43,10 @@ public class shippingStore {
     }
 
     /**
-     *Declaring menu options within scope
+     * Declaring menu options within scope
      */
 
-    private static void menuOptions()
-    {
+    private static void menuOptions() {
 
 
         System.out.println("Welcome to the Shipping Store database. Choose one of the following fucntions:");
@@ -67,15 +64,14 @@ public class shippingStore {
 
     /**
      * Used to check for user cases and then transfer the case to provided function.
+     *
      * @param num The number that user picks for the input for the menu.
-     * @param x The transfer of the array list between functions
+     * @param x   The transfer of the array list between functions
      */
 
-    private static void userCases(int num, List<Package> x) throws Exception
-    {
+    private static void userCases(int num, List<Package> x) throws Exception {
         Package newObject;
-        switch (num)
-        {
+        switch (num) {
             case 1:
                 // Show's All Packages in the database (Void)
                 packageOrder.showAllPackages(x);
@@ -121,37 +117,121 @@ public class shippingStore {
 
     /**
      * Designed to write to the file
+     *
      * @param arrayList1 Writes the array to file
      */
 
-    private static void writeToFile(List<Package> arrayList1) throws Exception
-    {
+    private static void writeToFile(List<Package> arrayList1) throws Exception {
         PrintWriter outFile = new PrintWriter("packages.txt");
-        for (Package array : arrayList1)
-        {
+        for (Package array : arrayList1) {
             outFile.print(array.trackingNumber + " " + array.type + " " + array.specification + " " + array.mailingClass
-                    + " "+ array.weight + " " + array.volume +"\n");
+                    + " " + array.weight + " " + array.volume + "\n");
         }
 
         outFile.close();
     }
 
+
+    /**
+     * Creates the package object, that holds the tracking number,type, specification, mailing classes, weight, and volume.
+     */
+
+    public class Package implements Serializable {
+
+        private String trackingNumber;
+        private String type;
+        private String specification;
+        private String mailingClass;
+        private float weight;
+        private int volume;
+
+        public Package() {
+            trackingNumber = "";
+            type = "";
+            specification = "";
+            mailingClass = "";
+            weight = 0.00;
+            volume = 0;
+
+        }
+        public Package(String trackingNumber, String type, String specification, String mailingClass, float weight, int volume){
+            this.trackingNumber = trackingNumber;   // change this
+            this.type = type;
+            this.specification = specification;
+            this.mailingClass = mailingClass;
+            this.weight = weight;
+            this.volume = volume;
+        }
+
+        // Define Package class methods including setter's, getter's, and mutator's.
+
+        /*
+            @param (int) trackingNumber. Sets the unique trackingNumber of the item post instantiation.
+        */
+        public void settrackingNumber(String trackingNumber) {
+            this.trackingNumber = trackingNumber;
+        }
+        /*
+            @param (String) type. Sets the type of the item post instantiation.
+        */
+        public void settype(String type) {
+            this.type = type;
+        }
+        /*
+            @param (double) specification. Sets the specification of the item post instantiation.
+        */
+        public void setspecification(String specification) {
+            this.specification = specification;
+        }
+        /*
+            @param (int) mailingClass. Sets the mailingClass of the item post instantiation.
+        */
+        public void setmailingClass(String mailingClass) {
+            this.mailingClass = mailingClass;
+        }
+
+        public void setweight(float weight) {
+            this.weight = weight;
+        }
+
+        public void setvolume(int volume) {
+            this.volume = volume;
+        }
+
+
+        /*
+            @param (int) trackingNumber. Gets the unique trackingNumber of the item post instantiation.
+        */
+        public int gettrackingNumber() {
+            return trackingNumber;
+        }
+        /*
+            @param (String) type. Getss the type of the item post instantiation.
+        */
+        public String gettype() {
+            return type;
+        }
+        /*
+            @param (double) specification. Gets the specification of the item post instantiation.
+        */
+        public double getspecification() {
+            return specification;
+        }
+        /*
+            @param (int) mailingClass. Gets the mailingClass of the item post instantiation.
+        */
+        public int getmailingClass() {
+            return mailingClass;
+        }
+        public void getweight(float weight) {
+            return weight;
+        }
+
+        public void getvolume(int volume) {
+            return volume;
+        }
+
+    }
+
 }
-
-/**
- * Creates the package object, that holds the tracking number,type, specification, mailing classes, weight, and volume.
- */
-
-class Package {
-
-    String trackingNumber;
-    String type;
-    String specification;
-    String mailingClass;
-    float weight;
-    int volume;
-
-}
-
-
 

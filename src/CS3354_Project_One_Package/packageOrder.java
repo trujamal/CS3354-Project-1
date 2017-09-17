@@ -1,6 +1,11 @@
 package CS3354_Project_One_Package;
 
-import java.util.*;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
 
 public class packageOrder {
     /**
@@ -9,9 +14,31 @@ public class packageOrder {
      */
 
     public static void showAllPackages(List<Package> x) {
-        // TODO: 9/15/17 Zach
+        Package currentPackage;
+        Locale locale = new Locale("en", "US");
+        NumberFormat currencyFormatter =
+                NumberFormat.getCurrencyInstance(locale);
 
+        if (currentInventory.size() <= 0){
+            System.out.println("ERROR! There's no inventory to display.");
+        } else {
+            System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n", "TRACKING #",
+                    "TYPE", "SPECIFICATION", "CLASS", "WEIGHT", "VOLUME");
+            System.out.println();
+            for (int index = 0; index < currentInventory.size(); index++) {
+                currentPackage = currentInventory.get(index);
+
+                System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n",
+                        currentPackage.gettrackingNumber(), currentPackage.gettype(),
+                        currentPackage.getspecification(), currentPackage.getspecification(),
+                        currentPackage.getmailingClass(),  currentPackage.getweight(),
+                        currentPackage.getvolume());
+            }
+        }
     }
+
+
+
 
     /**
      * This function is designed to go through several test in order to determine if certain conditions are met in order
