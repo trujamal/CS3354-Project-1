@@ -218,8 +218,19 @@ public class packageOrder {
         return remvoingPackage;
     }
 
-    public static void searchForPackage(List<Package> x) {
-        // TODO: 9/15/17 Zach
+    public static void searchForPackage(String trackingNumber) {
+        Package currentPackage = new Package();
+        boolean found = false;
+
+        for (int index = 0; index < currentInventory.size(); index++){
+            currentPackage = currentInventory.get(index);
+
+            if(currentPackage.gettrackingNumber() == trackingNumber){
+                itemFound = true;
+                break;
+            }
+        }
+
 
     }
 
