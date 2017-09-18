@@ -1,23 +1,22 @@
 package CS3354_Project_One_Package;
 
-import java.text.NumberFormat;
-import java.util.ArrayList;
+//import java.text.NumberFormat;
+//import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 
-public class packageOrder {
+public class packageOrder extends Package {
     /**
      * Designed to show all the Packages within the array object
      * @param x imports the array of objects
      */
 
-    public static void showAllPackages() {
-        Package currentPackage;
+    public static void showAllPackages(List<Package> x) {
+      /*  shippingStore currentPackage;
         Locale locale = new Locale("en", "US");
-        NumberFormat currencyFormatter =
-                NumberFormat.getCurrencyInstance(locale);
+
 
         if (currentInventory.size() <= 0){
             System.out.println("ERROR! There's no inventory to display.");
@@ -34,7 +33,7 @@ public class packageOrder {
                         currentPackage.getmailingClass(),  currentPackage.getweight(),
                         currentPackage.getvolume());
             }
-        }
+        } */
     }
 
 
@@ -240,7 +239,7 @@ public class packageOrder {
      * @param x
      */
     public static void listWeightPackages(List<Package> x) {
-        // work in progress 9/17/2017
+        /* work in progress 9/17/2017
         Package currentPackage;
         int lower, upper, i;
         Scanner scannerObj = new Scanner(system.in);
@@ -256,7 +255,7 @@ public class packageOrder {
         }
 
 
-
+         */
     }
 
     /**

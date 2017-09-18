@@ -136,24 +136,25 @@ public class shippingStore {
      * Creates the package object, that holds the tracking number,type, specification, mailing classes, weight, and volume.
      */
 
-    public class Package implements Serializable {
+    public class Package {
 
-        private String trackingNumber;
-        private String type;
-        private String specification;
-        private String mailingClass;
-        private float weight;
-        private int volume;
-
+        String trackingNumber;
+        String type;
+        String specification;
+        String mailingClass;
+        float weight;
+        int volume;
+       /*
         public Package() {
             trackingNumber = "";
             type = "";
             specification = "";
             mailingClass = "";
-            weight = 0.00;
+            weight = 0;
             volume = 0;
 
         }
+        /*
         public Package(String trackingNumber, String type, String specification, String mailingClass, float weight, int volume){
             this.trackingNumber = trackingNumber;   // change this
             this.type = type;
@@ -167,25 +168,25 @@ public class shippingStore {
 
         /*
             @param (int) trackingNumber. Sets the unique trackingNumber of the item post instantiation.
-        */
+
         public void settrackingNumber(String trackingNumber) {
             this.trackingNumber = trackingNumber;
         }
         /*
             @param (String) type. Sets the type of the item post instantiation.
-        */
+
         public void settype(String type) {
             this.type = type;
         }
         /*
             @param (double) specification. Sets the specification of the item post instantiation.
-        */
+
         public void setspecification(String specification) {
             this.specification = specification;
         }
         /*
             @param (int) mailingClass. Sets the mailingClass of the item post instantiation.
-        */
+
         public void setmailingClass(String mailingClass) {
             this.mailingClass = mailingClass;
         }
@@ -201,25 +202,25 @@ public class shippingStore {
 
         /*
             @param (int) trackingNumber. Gets the unique trackingNumber of the item post instantiation.
-        */
+
         public int gettrackingNumber() {
             return trackingNumber;
         }
         /*
             @param (String) type. Getss the type of the item post instantiation.
-        */
+
         public String gettype() {
             return type;
         }
         /*
             @param (double) specification. Gets the specification of the item post instantiation.
-        */
+
         public double getspecification() {
             return specification;
         }
         /*
             @param (int) mailingClass. Gets the mailingClass of the item post instantiation.
-        */
+
         public int getmailingClass() {
             return mailingClass;
         }
@@ -231,7 +232,8 @@ public class shippingStore {
             return volume;
         }
 
-    }
+    } */
 
+    }
 }
 
