@@ -1,12 +1,11 @@
 package CS3354_Project_One_Package;
-/*******************************************************************************
-@author Jamal Rasool and Zach Sotak
- Date: 09/12/2017
- @version 1.0
- @since 1.0
- Class Name: CS3354_Project_One_Package.MainApp
- Description: <p> Runs shipping database </p>
- ******************************************************************************/
+/** Shipping Store Program.
+ *@author Jamal Rasool and Zach Sotak
+ *Date: 09/12/2017
+ *@version 1.0
+ *@since 1.0
+ *Class Name: CS3354_Project_One_Package.MainApp
+ */
 
 import java.io.*;
 import java.util.ArrayList;
@@ -60,5 +59,5 @@ public class MainApp {
 
         inFile.close();
     }
-//af asfa
+
 }

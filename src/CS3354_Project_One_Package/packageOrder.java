@@ -1,6 +1,7 @@
 package CS3354_Project_One_Package;
 
 import java.util.*;
+import java.text.*;
 
 public class packageOrder {
     /**
@@ -9,6 +10,7 @@ public class packageOrder {
      */
 
     public static void showAllPackages(List<Package> x) {
+        DecimalFormat formatter = new DecimalFormat("0.00");
 
             if (x.size() <= 0){
                 System.out.println("ERROR! There's no inventory to display.");
@@ -23,9 +25,9 @@ public class packageOrder {
                     System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                             array.trackingNumber, array.type,
                             array.specification,
-                            array.mailingClass,  array.weight,
-                            array.volume);
-                }
+                            array.mailingClass,  (formatter.format(array.weight)),
+                array.volume);
+            }
             }
 
 
@@ -211,7 +213,7 @@ public class packageOrder {
     }
 
     public static void searchForPackage(List<Package> x) {
-        //j
+        DecimalFormat formatter = new DecimalFormat("0.00");
         Scanner readInput = new Scanner(System.in);
         String text;
         System.out.println("Please enter a Tracking Number to Search for: ");
@@ -221,7 +223,7 @@ public class packageOrder {
                 System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                         x.get(i).trackingNumber, x.get(i).type,
                         x.get(i).specification,
-                        x.get(i).mailingClass,  x.get(i).weight,
+                        x.get(i).mailingClass,  (formatter.format(x.get(i).weight)),
                         x.get(i).volume);
                 break;
             } else if(i == (x.size()-1) && text.length() == 5 && text.matches("[A-Za-z0-9]+")) {
@@ -234,6 +236,7 @@ public class packageOrder {
     }
 
     public static void listWeightPackages(List<Package> x) {
+        DecimalFormat formatter = new DecimalFormat("0.00");
         Scanner readInput = new Scanner(System.in);
         Float low;
         Float high;
@@ -255,7 +258,7 @@ public class packageOrder {
                 System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                         x.get(i).trackingNumber, x.get(i).type,
                         x.get(i).specification,
-                        x.get(i).mailingClass, x.get(i).weight,
+                        x.get(i).mailingClass, (formatter.format(x.get(i).weight)),
                         x.get(i).volume);
 
 
