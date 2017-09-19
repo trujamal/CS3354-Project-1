@@ -78,6 +78,10 @@ public class shippingStore {
         {
             case 1:
                 // Show's All Packages in the database (Void)
+                if (x.size() == 0) {
+                    System.out.println("No inventory to show");
+                    textInputFunction(x);
+                }
                 packageOrder.showAllPackages(x);
                 textInputFunction(x);
                 break;
@@ -90,6 +94,10 @@ public class shippingStore {
                 break;
             case 3:
                 // Delete a package from the database (Return type list)
+                if (x.size() == 0) {
+                    System.out.println("No inventory to delete");
+                    textInputFunction(x);
+                }
                 newObject = packageOrder.deletePackage(x);
                 x.remove(newObject);
                 System.out.println("");
@@ -97,11 +105,19 @@ public class shippingStore {
                 break;
             case 4:
                 // Search for a package order given tracking number
+                if (x.size() == 0) {
+                    System.out.println("No inventory to search");
+                    textInputFunction(x);
+                }
                 packageOrder.searchForPackage(x);
                 textInputFunction(x);
                 break;
             case 5:
                 // Show a list of packages with a given weight range
+                if (x.size() == 0) {
+                    System.out.println("Sorry No inventory to search");
+                    textInputFunction(x);
+                }
                 packageOrder.listWeightPackages(x);
                 textInputFunction(x);
                 break;

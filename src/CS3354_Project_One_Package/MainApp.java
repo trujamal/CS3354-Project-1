@@ -36,28 +36,43 @@ public class MainApp {
         // Creates a new array list
         List<Package> infoOfPack = new ArrayList<>();
 
-        Scanner inFile = new Scanner(new FileReader("packages.txt"));
-        while (inFile.hasNext()){
 
-            String line = inFile.nextLine();
-            String[] words = line.split(" ");
+        File f = new File("packages.txt");
+        if (f.isFile() && f.canRead()) {
+            try {
+                Scanner inFile = new Scanner(new FileReader("packages.txt"));
 
-            //Placing information into the array of objects
-            Package newInfo = new Package();
-            newInfo.trackingNumber = words[0];
-            newInfo.type = words[1];
-            newInfo.specification = words[2];
-            newInfo.mailingClass = words[3];
-            newInfo.weight = Float.parseFloat(words[4]);
-            newInfo.volume = Integer.parseInt(words[5]);
-            infoOfPack.add(newInfo);
 
+                try {
+                    while (inFile.hasNext()) {
+
+                        String line = inFile.nextLine();
+                        String[] words = line.split(" ");
+
+                        //Placing information into the array of objects
+                        Package newInfo = new Package();
+                        newInfo.trackingNumber = words[0];
+                        newInfo.type = words[1];
+                        newInfo.specification = words[2];
+                        newInfo.mailingClass = words[3];
+                        newInfo.weight = Float.parseFloat(words[4]);
+                        newInfo.volume = Integer.parseInt(words[5]);
+                        infoOfPack.add(newInfo);
+                    }
+
+                } finally {
+                    inFile.close();
+                }
+            } catch (IOException ex) {
+                System.out.println(ex + "Error file can not be opened");
+                shippingStore.textInputFunction(infoOfPack);
+            }
         }
+
 
         // Case Statements for menuOptions
        shippingStore.textInputFunction(infoOfPack);
 
-        inFile.close();
     }
 
 }
