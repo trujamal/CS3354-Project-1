@@ -136,6 +136,10 @@ public class shippingStore {
         }
     }
 
+    /**
+     * LineFunctino is designed to print out all of the -- for the formatting.
+     */
+
     static void lineFunctino() {
         for (int i = 0; i < 102; i++) {
             System.out.print("-");
