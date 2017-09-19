@@ -3,7 +3,6 @@ Metsis, Vangelis CS3354
 Project 1
 
 <center>CS3354 – Fall 2017 – Assignment 1 </center>
-<img> https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR6MrohTO0mkRtpXSlO4lgTmgEZmxI0zg0_b5IzuvxZOsDI-gW9hVsHBlnajsj6hHQ-lmj5816A-4o </img>
 
 Due date: Tuesday, Sep 19 at 11:55 p.m.
  
