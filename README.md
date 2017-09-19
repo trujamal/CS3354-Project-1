@@ -1,4 +1,4 @@
-# Project
+# CS3354 Project 1
 Metsis, Vangelis CS3354
 Project 1
 
