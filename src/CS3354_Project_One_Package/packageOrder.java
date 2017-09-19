@@ -1,43 +1,32 @@
 package CS3354_Project_One_Package;
 
-//import java.text.NumberFormat;
-//import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
-
-public class packageOrder extends Package {
+public class packageOrder {
     /**
      * Designed to show all the Packages within the array object
      * @param x imports the array of objects
      */
 
     public static void showAllPackages(List<Package> x) {
-      /*  shippingStore currentPackage;
-        Locale locale = new Locale("en", "US");
 
-
-        if (currentInventory.size() <= 0){
+        if (x.size() <= 0) {
             System.out.println("ERROR! There's no inventory to display.");
         } else {
             System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n", "TRACKING #",
                     "TYPE", "SPECIFICATION", "CLASS", "WEIGHT", "VOLUME");
             System.out.println();
-            for (int index = 0; index < currentInventory.size(); index++) {
-                currentPackage = currentInventory.get(index);
+            for (Package array : x) {
 
                 System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n",
-                        currentPackage.gettrackingNumber(), currentPackage.gettype(),
-                        currentPackage.getspecification(), currentPackage.getspecification(),
-                        currentPackage.getmailingClass(),  currentPackage.getweight(),
-                        currentPackage.getvolume());
+                        array.trackingNumber, array.type,
+                        array.specification,
+                        array.mailingClass, array.weight,
+                        array.volume);
             }
-        } */
+        }
+
     }
-
-
-
 
     /**
      * This function is designed to go through several test in order to determine if certain conditions are met in order
@@ -217,45 +206,14 @@ public class packageOrder extends Package {
         return remvoingPackage;
     }
 
-
-    public static void searchForPackage(String trackingNumber) {
-        Package currentPackage = new Package();
-        boolean found = false;
-
-        for (int index = 0; index < currentInventory.size(); index++){
-            currentPackage = currentInventory.get(index);
-
-            if(currentPackage.gettrackingNumber() == trackingNumber){
-                itemFound = true;
-                break;
-            }
-        }
-
+    public static void searchForPackage(List<Package> x) {
+        // TODO: 9/15/17 Zach
 
     }
 
-    /**
-     * Function to show a list of packages within a given weight range.
-     * @param x
-     */
     public static void listWeightPackages(List<Package> x) {
-        /* work in progress 9/17/2017
-        Package currentPackage;
-        int lower, upper, i;
-        Scanner scannerObj = new Scanner(system.in);
-        System.out.print("Enter lower weight range to print: ");
-        lower = scannerObj.nextInt();
+        // TODO: 9/15/17 Zach
 
-        System.out.println("Enter Upper weight range to print: ");
-        upper = scannerObj.nextInt();
-
-        for (i=lower; i<=upper; i++)
-        {
-            System.out.println(i);
-        }
-
-
-         */
     }
 
     /**
