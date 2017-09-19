@@ -211,7 +211,21 @@ public class packageOrder {
     }
 
     public static void searchForPackage(List<Package> x) {
-        // TODO: 9/15/17 Zach
+        Scanner readInput = new Scanner(System.in);
+        String text;
+        System.out.println("Please enter a Tracking Number to Search for: ");
+        text = readInput.nextLine();
+        for (int i = 0; i < x.size(); i++) {
+            if (x.get(i).trackingNumber.matches(text) || text.length() != 5 || !text.matches("[A-Za-z0-9]+")) {
+                System.out.println("ERROR! The TRACKING NUMBER '" + text +
+                        "' is already in use. Or is invalid Please Try Again \n");
+                break;
+            } else if(i == (x.size()-1) && text.length() == 5 && text.matches("[A-Za-z0-9]+")) {
+                System.out.println("ERROR! The TRACKING NUMBER '" + text +
+                        "' is already in use. Or is invalid Please Try Again \n");
+                break;
+            }
+        }
 
     }
 
