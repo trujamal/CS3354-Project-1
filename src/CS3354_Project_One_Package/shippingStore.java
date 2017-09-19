@@ -92,6 +92,7 @@ public class shippingStore {
                 // Delete a package from the database (Return type list)
                 newObject = packageOrder.deletePackage(x);
                 x.remove(newObject);
+                System.out.println("");
                 textInputFunction(x);
                 break;
             case 4:

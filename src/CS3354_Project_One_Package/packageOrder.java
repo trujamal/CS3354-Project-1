@@ -218,8 +218,11 @@ public class packageOrder {
         text = readInput.nextLine();
         for (int i = 0; i < x.size(); i++) {
             if (x.get(i).trackingNumber.matches(text) || text.length() != 5 || !text.matches("[A-Za-z0-9]+")) {
-                System.out.println("ERROR! The TRACKING NUMBER '" + text +
-                        "' is already in use. Or is invalid Please Try Again \n");
+                System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
+                        x.get(i).trackingNumber, x.get(i).type,
+                        x.get(i).specification,
+                        x.get(i).mailingClass,  x.get(i).weight,
+                        x.get(i).volume);
                 break;
             } else if(i == (x.size()-1) && text.length() == 5 && text.matches("[A-Za-z0-9]+")) {
                 System.out.println("ERROR! The TRACKING NUMBER '" + text +
@@ -231,8 +234,36 @@ public class packageOrder {
     }
 
     public static void listWeightPackages(List<Package> x) {
-        // TODO: 9/15/17 Zach
+        Scanner readInput = new Scanner(System.in);
+        Float low;
+        Float high;
+        boolean swatch = true;
 
+        do{
+            System.out.println("Please enter a low end of weight range to search for: ");
+            low = readInput.nextFloat();
+
+        }while(low < 0);
+        do{
+            System.out.println("Please enter a high end weight range to search for: ");
+            high = readInput.nextFloat();
+        }while(high < low);
+
+
+        for (int i = 0; i < x.size(); i++) {
+            if (x.get(i).weight >= low && x.get(i).weight <= high ) {
+                System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
+                        x.get(i).trackingNumber, x.get(i).type,
+                        x.get(i).specification,
+                        x.get(i).mailingClass, x.get(i).weight,
+                        x.get(i).volume);
+
+
+
+
+            }
+        }
+        System.out.println("");
     }
 
     /**
