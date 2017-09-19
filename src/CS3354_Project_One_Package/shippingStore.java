@@ -136,6 +136,11 @@ public class shippingStore {
         }
     }
 
+    static void lineFunctino() {
+        for (int i = 0; i < 102; i++) {
+            System.out.print("-");
+        }
+    }
     /**
      * Designed to write to the file
      * @param arrayList1 Writes the array to file

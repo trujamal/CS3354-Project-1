@@ -15,12 +15,13 @@ public class packageOrder {
             if (x.size() <= 0){
                 System.out.println("ERROR! There's no inventory to display.");
             } else {
-
+                shippingStore.lineFunctino();
+                System.out.println("");
                 System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n", "TRACKING #",
-                        "TYPE", "SPECIFICATION", "CLASS", "WEIGHT", "VOLUME");
+                        "TYPE", "SPECIFICATION", "CLASS", "WEIGHT(oz)", "VOLUME");
+                shippingStore.lineFunctino();
                 System.out.println();
                 for (Package array : x) {
-
 
                     System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                             array.trackingNumber, array.type,
@@ -28,10 +29,9 @@ public class packageOrder {
                             array.mailingClass,  (formatter.format(array.weight)),
                 array.volume);
             }
+                shippingStore.lineFunctino();
+                System.out.println("");
             }
-
-
-
     }
 
     /**
@@ -220,11 +220,20 @@ public class packageOrder {
         text = readInput.nextLine();
         for (int i = 0; i < x.size(); i++) {
             if (x.get(i).trackingNumber.matches(text) || text.length() != 5 || !text.matches("[A-Za-z0-9]+")) {
+                shippingStore.lineFunctino();
+                System.out.println("");
+                System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n", "TRACKING #",
+                        "TYPE", "SPECIFICATION", "CLASS", "WEIGHT(oz)", "VOLUME");
+                shippingStore.lineFunctino();
+                System.out.println();
                 System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                         x.get(i).trackingNumber, x.get(i).type,
                         x.get(i).specification,
                         x.get(i).mailingClass,  (formatter.format(x.get(i).weight)),
                         x.get(i).volume);
+                shippingStore.lineFunctino();
+                System.out.println();
+
                 break;
             } else if(i == (x.size()-1) && text.length() == 5 && text.matches("[A-Za-z0-9]+")) {
                 System.out.println("ERROR! The TRACKING NUMBER '" + text +
@@ -251,21 +260,25 @@ public class packageOrder {
             System.out.println("Please enter a high end weight range to search for: ");
             high = readInput.nextFloat();
         }while(high < low);
-
+        shippingStore.lineFunctino();
+        System.out.println("");
+        System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n", "TRACKING #",
+                "TYPE", "SPECIFICATION", "CLASS", "WEIGHT(oz)", "VOLUME");
+        shippingStore.lineFunctino();
+        System.out.println();
 
         for (int i = 0; i < x.size(); i++) {
             if (x.get(i).weight >= low && x.get(i).weight <= high ) {
+
                 System.out.format("|%1$-15s| %2$-15s| %3$-15s| %4$-15s| %5$-15s |%6$-15s| %n",
                         x.get(i).trackingNumber, x.get(i).type,
                         x.get(i).specification,
                         x.get(i).mailingClass, (formatter.format(x.get(i).weight)),
                         x.get(i).volume);
-
-
-
-
             }
         }
+        shippingStore.lineFunctino();
+        System.out.println();
         System.out.println("");
     }
 
