@@ -150,7 +150,6 @@ class Package {
     String mailingClass;
     float weight;
     int volume;
-// afaffsa
 }
 
 

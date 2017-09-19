@@ -9,7 +9,23 @@ public class packageOrder {
      */
 
     public static void showAllPackages(List<Package> x) {
-// assafasfasfasfafa
+
+        if (x.size() <= 0) {
+            System.out.println("ERROR! There's no inventory to display.");
+        } else {
+            System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n", "TRACKING #",
+                    "TYPE", "SPECIFICATION", "CLASS", "WEIGHT", "VOLUME");
+            System.out.println();
+            for (Package array : x) {
+
+                System.out.format("%1$-10s %2$-15s %3$-15s %4$-15s %5$-15s %6$-15s %n",
+                        array.trackingNumber, array.type,
+                        array.specification,
+                        array.mailingClass, array.weight,
+                        array.volume);
+            }
+        }
+
     }
 
     /**
